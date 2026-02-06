@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+  /* Slow gradient animation for subtle life */
+  @keyframes gradient-shift {
+
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  body {
+    @apply bg-dark-bg text-slate-300 antialiased;
+    background-image:
+      radial-gradient(at 40% 20%, hsla(262, 83%, 58%, 0.08) 0px, transparent 50%),
+      radial-gradient(at 80% 0%, hsla(328, 100%, 54%, 0.06) 0px, transparent 50%),
+      radial-gradient(at 0% 50%, hsla(220, 90%, 56%, 0.08) 0px, transparent 50%);
+    background-size: 200% 200%;
+    background-attachment: fixed;
+    animation: gradient-shift 15s ease-in-out infinite;
+  }
+
+  /* Respect reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    body {
+      animation: none;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  ::selection {
+    @apply bg-primary/80 text-white;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-white font-bold tracking-tight;
+  }
+
+  /* Accessible focus states */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary;
+  }
+
+  a:focus-visible,
+  button:focus-visible {
+    @apply ring-2 ring-primary ring-offset-2 ring-offset-dark-bg;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24;
+  }
+
+  .glass-panel {
+    @apply bg-dark-surface/60 backdrop-blur-xl border border-white/10 shadow-xl;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 text-white rounded-full font-medium transition-all duration-300 ease-out shadow-lg hover:shadow-xl;
+    background: linear-gradient(to right, #6366F1, #A855F7);
+    box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.25);
+    /* GPU-optimized hover */
+    transform: translateZ(0);
+  }
+
+  .btn-primary:hover {
+    transform: translateZ(0) scale(1.03);
+    box-shadow: 0 20px 25px -5px rgba(99, 102, 241, 0.3);
+  }
+
+  .btn-primary:active {
+    transform: translateZ(0) scale(0.97);
+  }
+
+  .btn-outline {
+    @apply px-6 py-3 border border-white/20 text-slate-300 rounded-full font-medium hover:text-white hover:border-primary/50 hover:bg-primary/10 transition-all duration-300 ease-out;
+    transform: translateZ(0);
+  }
+
+  .nav-link {
+    @apply text-slate-400 hover:text-white transition-colors duration-300 text-sm font-medium tracking-wide;
+  }
+
+  .gradient-text {
+    @apply text-transparent bg-clip-text;
+    background-image: linear-gradient(to right, #6366F1, #A855F7, #EC4899);
+  }
+
+  .glow-card {
+    @apply relative overflow-hidden rounded-2xl bg-dark-surface/80 border border-white/10;
+    /* GPU layer */
+    transform: translateZ(0);
+  }
+
+  .glow-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(99, 102, 241, 0.15), transparent 60%);
+    pointer-events: none;
+  }
+
+  /* Skip to content for accessibility */
+  .skip-to-content {
+    @apply sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-primary focus:text-white focus:rounded-lg;
+  }
+}
+
+/* Smooth scrolling with reduced motion respect */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
