@@ -11,7 +11,7 @@ const Projects = () => {
             description: "A calming, accessible website for a modern health clinic. Features appointment scheduling, patient portal, and WCAG 2.1 AA compliance.",
             tags: ["React", "Tailwind CSS", "Framer Motion", "Accessibility"],
             gradient: "linear-gradient(135deg, #06B6D4, #6366F1, #A855F7)",
-            links: { demo: "#", code: "#" },
+            links: { demo: "https://gentle-care-ui.vercel.app/", code: "" },
             alt: "Healthcare platform project screenshot"
         },
         {
@@ -19,7 +19,7 @@ const Projects = () => {
             description: "High-performance admin panel with real-time data visualization, dark mode, and responsive design for analytics-driven businesses.",
             tags: ["React", "TypeScript", "Recharts", "REST API"],
             gradient: "linear-gradient(135deg, #6366F1, #A855F7, #EC4899)",
-            links: { demo: "#", code: "#" },
+            links: { demo: "https://admindashboard-ebon-two.vercel.app/login", code: "https://github.com/Sairahul-m/Admin_Dashboard.git" },
             alt: "SaaS dashboard project screenshot"
         },
         {
@@ -27,7 +27,7 @@ const Projects = () => {
             description: "Seamless, secure checkout flow with Stripe integration. Optimized for conversion with a focus on trust and user experience.",
             tags: ["React", "Stripe", "UI/UX", "Payment Integration"],
             gradient: "linear-gradient(135deg, #A855F7, #EC4899, #6366F1)",
-            links: { demo: "#", code: "#" },
+            links: { demo: "https://paymentui.vercel.app/", code: "https://github.com/Sairahul-m/Payment_UI.git" },
             alt: "E-commerce checkout project screenshot"
         }
     ];
